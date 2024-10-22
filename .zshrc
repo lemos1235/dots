@@ -1,9 +1,14 @@
+# GPG
+export GPG_TTY=$TTY
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -16,7 +21,7 @@ export ZSH="/Users/lg/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="lambda"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="cypher"
 
 # Set list of themes to pick from when loading at random
@@ -33,10 +38,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -81,14 +86,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -110,11 +114,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 alias doom="hp doom"
-alias brew="hp brew -v"
+# alias brew="hp brew -v"
 alias dus="du -h -d 1 . | sort -h -r | head -n 10"
 alias proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 # alias ec="emacsclient -ncq"
-alias ec=emacs
+# alias ec=emacs
+alias mcurl="curl -w \"@$HOME/.curl-format.txt\""
 
 if type brew &>/dev/null; then
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -123,41 +128,24 @@ autoload -Uz compinit
 compinit
 fi
 
+source $ZSH/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
-
+# llvm
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 ### End of Zinit's installer chunk
 # 中国科学技术大学
-export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
-export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
 # nodejs
-export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/node@14/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/node@14/include"
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+export NODE_VER=18
+export PATH="/opt/homebrew/opt/node@$NODE_VER/bin:$PATH"
+# export NODE_OPTIONS=--openssl-legacy-provider
+export LDFLAGS="-L/opt/homebrew/opt/node@$NODE_VER/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@$NODE_VER/include"
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:~/.emacs.d/bin
 # flutter
@@ -169,5 +157,12 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 # golang
 export GOROOT="/opt/homebrew/opt/go@1.17"
 export PATH="$GOROOT/bin:$PATH"
-export GOPATH="/Users/lg/go"
-export PATH="$GOPATH/bin:$PATH"
+# export GOPATH="/Users/lg/go"
+# export PATH="$GOPATH/bin:$PATH"
+# android
+export ANDROID_HOME=/Users/$USER/Library/Android/sdk
+export NDK_HOME=$ANDROID_HOME/ndk-bundle
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+# apps
+export PATH="$PATH:/Applications/Android Studio.app/Contents/MacOS"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
