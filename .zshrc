@@ -116,7 +116,7 @@ alias vim=nvim
 alias doom="hp doom"
 # alias brew="hp brew -v"
 alias dus="du -h -d 1 . | sort -h -r | head -n 10"
-alias proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
+alias proxy="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891"
 # alias ec="emacsclient -ncq"
 # alias ec=emacs
 alias mcurl="curl -w \"@$HOME/.curl-format.txt\""
@@ -145,7 +145,7 @@ export PATH="/opt/homebrew/opt/node@$NODE_VER/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/node@$NODE_VER/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/node@$NODE_VER/include"
 #export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 17)"
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:~/.emacs.d/bin
 # flutter
@@ -155,14 +155,13 @@ export PATH="$PATH:/Library/flutter/bin"
 # dart pub
 export PATH="$PATH:$HOME/.pub-cache/bin"
 # golang
-export GOROOT="/opt/homebrew/opt/go@1.17"
+export GOROOT="/opt/homebrew/opt/go@1.20/libexec"
 export PATH="$GOROOT/bin:$PATH"
-# export GOPATH="/Users/lg/go"
-# export PATH="$GOPATH/bin:$PATH"
+export GOPATH="/Users/lg/go"
+export PATH="$GOPATH/bin:$PATH"
 # android
 export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export NDK_HOME=$ANDROID_HOME/ndk-bundle
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 # apps
-export PATH="$PATH:/Applications/Android Studio.app/Contents/MacOS"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"

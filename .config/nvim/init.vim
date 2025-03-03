@@ -28,7 +28,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -46,7 +46,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
+" Plug '~/my-prototype-plugin'
 
 "theme color
 Plug 'tomasr/molokai' | Plug 'altercation/vim-colors-solarized'
@@ -212,7 +212,7 @@ set showfulltag " show tag with function protype.
 
 set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
 
-set fileencodings=utf-8,gbk2312,gbk,gb18030,cp936
+set fileencodings=utf-8,gbk2312,gbk,gb18030,cp936,shift-jis,sjis,default
 
 set encoding=utf-8
 
@@ -383,6 +383,11 @@ endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * call InsertLeaveActions()
 au BufEnter * call InitColor()
+
+"status line
+if has("statusline")
+ set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
 
 function Result_of_run(run_sign)
     "!ls这样运行, 显示的结果会切换到shell界面

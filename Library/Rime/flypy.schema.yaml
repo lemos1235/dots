@@ -19,6 +19,7 @@ switches:
    # states: [ 中文, 英文 ]
   - name: full_shape
    # states: [ 半角, 全角 ]
+    reset: 0
   - name: simplification
    # states: [ 简, 繁 ]
     reset: 0
@@ -75,13 +76,13 @@ translator:
   enable_user_dict: false
   disable_user_dict_for_patterns:
     - "^z.*$"
- 
+
 
 history:
    input: ;f
    size: 1 #重复前几次上屏
    initial_quality: 1 #首选
-   
+
 simplification:
   opencc_config: s2tw.json
   option_name: simplification
@@ -94,7 +95,7 @@ custom_phraseVD:
   enable_sentence: false
   enable_completion: false
   initial_quality: 0 #用户词和系统词重码 置顶
-  
+
 custom_phraseXT:
   dictionary: ""
   user_dict: flypy_sys
@@ -138,7 +139,7 @@ key_binder:
     - {accept: Release+comma, send: comma, when: composing}
 
     - {accept: "Tab", send: Escape, when: composing}
-    - {accept: "Caps_Lock", send: Escape, when: composing} 
+    - {accept: "Caps_Lock", send: Escape, when: composing}
     - {accept: "Shift_R", send: Escape, when: composing}
     - {accept: "Shift+space", toggle: full_shape, when: always} #切换全半角
   #  - {accept: "Control+j", toggle: simplification, when: always} #切换简繁
@@ -146,7 +147,7 @@ key_binder:
    # - {accept: "Control+m", select: .next, when: always} #切换方案
 
 
-   
+
 recognizer:
   import_preset: default
   patterns:
@@ -157,7 +158,7 @@ recognizer:
 
 menu:
   page_size: 5 #候选项数
-  
+
 style:
   horizontal: true #竖排为false
-  
+

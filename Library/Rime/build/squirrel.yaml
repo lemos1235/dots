@@ -1,13 +1,14 @@
 __build_info:
-  rime_version: 1.7.3
+  rime_version: 1.11.2
   timestamps:
-    squirrel: 1613228858
-    squirrel.custom: 1617981563
+    squirrel: 1717774589
+    squirrel.custom: 1738669746
 app_options:
   com.googlecode.iterm2:
     ascii_mode: false
 chord_duration: 0.1
-config_version: 0.37
+config_version: 1.0
+keyboard_layout: last
 preset_color_schemes:
   apathy:
     author: "LIANG Hai"
@@ -130,5 +131,4 @@ preset_color_schemes:
 show_notifications_via_notification_center: true
 show_notifications_when: appropriate
 style:
-  color_scheme: win10
-us_keyboard_layout: false
+  color_scheme: mac

@@ -5,6 +5,7 @@ customization:
 patch:
   schema_list:
     - schema: flypy # 添加小鹤音形
+    - schema: jp_sela # 添加日语输入
 
 #
 # 可用的按键有 Caps_Lock, Shift_L, Shift_R, Control_L, control_R
@@ -23,7 +24,7 @@ patch:
 
   ascii_composer/good_old_caps_lock: true
   ascii_composer/switch_key:
-    Caps_Lock: noop
+    Caps_Lock: commit_code
     # Shift_L: commit_code
     Shift_L: noop
     Shift_R: noop
