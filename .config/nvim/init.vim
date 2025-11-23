@@ -7,52 +7,44 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
 Plug 'Yggdroot/indentLine'
 
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'tell-k/vim-autopep8'
+" Plug 'tell-k/vim-autopep8'
 
-Plug 'kovisoft/slimv'
-
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" Plug 'kovisoft/slimv'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-
 " Plug 'easymotion/vim-easymotion'
 
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
+"Multiple Plug commands can be written in a single line using | separators
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 "comments-auto
 Plug 'scrooloose/nerdcommenter'
 
+" formatter
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
 "jedi-vim
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2:r above)
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-" Plug '~/my-prototype-plugin'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 "theme color
 Plug 'tomasr/molokai' | Plug 'altercation/vim-colors-solarized'
 
 "Fuzzy file, buffer, mru, tag, etc finder.
-"Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 
 "multiple selections
 Plug 'terryma/vim-multiple-cursors'
@@ -61,7 +53,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 
 "emmet quick-html
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,7 +129,8 @@ let g:indentLine_enabled = 0
 "autopep8 ####
 let g:autopep8_disable_show_diff=1
 
-
+"multiple selection ####
+let g:multi_cursor_select_all_key = "<leader>g"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               common setting                               "
@@ -210,13 +203,13 @@ set cmdheight=1 " 1 screen lines to use for the command-line
 
 set showfulltag " show tag with function protype.
 
-set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
+"set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
 
 set fileencodings=utf-8,gbk2312,gbk,gb18030,cp936,shift-jis,sjis,default
 
 set encoding=utf-8
 
-set tenc=utf-8
+"set tenc=utf-8
 
 set langmenu=zh_CN
 
