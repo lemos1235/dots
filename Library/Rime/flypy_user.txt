@@ -33,3 +33,12 @@
 监听	jmtk
 密钥	miyc
 距离	juli
+华为	hxww
+京东	jkds
+时间	uij
+时间	uijm
+注释	vuui
+字符	zif
+字符	zifu
+计算	jisr
+寓言	yuyj

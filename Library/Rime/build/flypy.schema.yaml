@@ -1,14 +1,21 @@
 __build_info:
-  rime_version: 1.11.2
+  rime_version: 1.16.0
   timestamps:
-    default: 1717774589
-    default.custom: 1739792662
+    default: 1768129037
+    default.custom: 1768269540
     flypy.custom: 0
-    flypy.schema: 1738670618
-    key_bindings: 1717774589
+    flypy.schema: 1768269569
+    key_bindings: 1768129037
     key_bindings.custom: 0
-    punctuation: 1717774589
+    punctuation: 1768129037
     punctuation.custom: 0
+custom_phraseQMZ:
+  db_class: stabledb
+  dictionary: ""
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: "-1"
+  user_dict: flypy_full
 custom_phraseVD:
   db_class: stabledb
   dictionary: ""
@@ -28,7 +35,7 @@ custom_phraseYH:
   dictionary: ""
   enable_completion: false
   enable_sentence: false
-  initial_quality: "-1"
+  initial_quality: 0
   user_dict: flypy_user
 engine:
   filters:
@@ -171,12 +178,19 @@ reverse_lookup:
 schema:
   author:
     - "方案设计：何海峰 <flypy@qq.com>"
+  dependencies:
+    - flypydz
   description: |
     小鹤音形主码表
 
   name: "小鹤音形"
   schema_id: flypy
   version: 10.7.4
+selector:
+  bindings:
+    ISO_Left_Tab: previous_candidate
+    "Shift+Tab": previous_candidate
+    Tab: next_candidate
 simplification:
   opencc_config: s2tw.json
   option_name: simplification

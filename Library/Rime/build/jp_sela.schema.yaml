@@ -1,13 +1,13 @@
 __build_info:
-  rime_version: 1.11.2
+  rime_version: 1.16.0
   timestamps:
-    default: 1717774589
-    default.custom: 1739792662
+    default: 1768129037
+    default.custom: 1768269540
     jp_sela.custom: 0
     jp_sela.schema: 1738670686
-    key_bindings: 1717774589
+    key_bindings: 1768129037
     key_bindings.custom: 0
-    punctuation: 1717774589
+    punctuation: 1768129037
     punctuation.custom: 0
 engine:
   filters:
@@ -118,6 +118,11 @@ schema:
   name: "日文"
   schema_id: jp_sela
   version: 2019.05.08
+selector:
+  bindings:
+    ISO_Left_Tab: previous_candidate
+    "Shift+Tab": previous_candidate
+    Tab: next_candidate
 speller:
   alphabet: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_"
   delimiter: " '"
