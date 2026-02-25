@@ -142,7 +142,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.local/bin:$PATH"
 
 # llvm
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# 需要注释llvm相关的变量，因为这可能会导致 flutter run 或某些程序运行异常
+#export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 #export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 ### End of Zinit's installer chunk
 # 中国科学技术大学
