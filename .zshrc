@@ -145,8 +145,8 @@ export PATH="$HOME/.local/bin:$PATH"
 # 需要注释llvm相关的变量，因为这可能会导致 flutter run 或某些程序运行异常
 #export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 #export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-### End of Zinit's installer chunk
-# 中国科学技术大学
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# rust
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
@@ -183,8 +183,6 @@ export PATH="$GOPATH/bin:$PATH"
 export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export NDK_HOME=$ANDROID_HOME/ndk-bundle
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
-# apps
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
